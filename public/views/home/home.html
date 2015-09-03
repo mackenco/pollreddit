@@ -1,0 +1,66 @@
+<div class="container-fluid">
+  <header class="row">
+    <h1 class="text-center col-md-6 col-md-offset-3">Query Reddit</h1>
+  </header>
+
+  <section class="row">
+    <form>
+      <div class="form-group col-md-6 col-md-offset-3">
+        <label for="keywords" class="sr-only">Keyword</label>
+        <input ng-model="keyword" name="keyword" type="text" autofocus class="form-control" placeholder="Keyword">
+      </div>
+      <div class="form-group col-md-6 col-md-offset-3 text-center">
+        <button ng-click="search()" class="btn btn-primary btn-lg">Search</button>
+      </div>
+    </form>
+  </section>
+
+  <div ng-include="'views/home/pinned.html'"></div>
+
+  <div class="col-md-offset-3" ng-show="resultsLoading && first">
+    <h3>Loading Results...</h3>
+  </div>
+
+  <section class="row" ng-if="results.length > 0">
+    <h1 class="text-center h2">Results</h1>
+    
+    <section class="col-md-6 col-md-offset-3">
+      <table class="table table-hover table-bordered">
+        <tr ng-repeat="result in results">
+          <td class="row" ng-click="setClicked(result)">
+            <div class="text-center">{{result.data.title}}</div>
+
+            <div ng-show="clicked === result.data.id && commentLoading">
+              Loading Data...
+            </div>
+
+            <div ng-show="clicked === result.data.id && !commentLoading">
+              <div ng-show="clicked === result.data.id">
+                <hr>
+
+                <div class="pull-left col-md-4">
+                  <ul class="list-unstyled">
+                    <li ng-click="pinResult(result)"><i ng-class="{'pinned': isPinned(result) }" class="glyphicon glyphicon-star"></i></li>
+                    <li><h3 class="pull-left">{{result.data.score}}</h3></li>
+                    <li><img src="{{result.data.thumbnail}}" class="pull-left img-thumbnail img-responsive thumb" ng-if="validThumb(result.data.thumbnail)"></li>
+                  </ul>
+                </div>
+
+                <div class="pull-left col-md-8">
+                  <ul class="list-unstyled break">
+                    <li><a href="{{result.data.url}}" target="_blank">Link to Item</a></li>
+                    <li><a href="http://reddit.com{{result.data.permalink}}" target="_blank">Link to Discussion</a></li>
+                    <li><strong>Top Comment: </strong>{{comment.body}}<h6>({{comment.author}})</h6></li>
+                  </ul>
+                </div>
+              </div>   
+
+            </div>
+
+          </td>
+        </tr>
+      </table>
+    </section>
+
+  </section>
+</div>

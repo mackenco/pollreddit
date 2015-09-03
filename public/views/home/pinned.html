@@ -1,0 +1,36 @@
+<section class="row" ng-if="pins.length > 0">
+    <h1 class="text-center h2">Pinned Results</h1>
+
+    <section class="col-md-6 col-md-offset-3">
+      <table class="table table-hover table-bordered">
+        <tr ng-repeat="pin in pins track by pin.id">
+          <td class="row" ng-click="setClickedPin(pin)">
+            <div class="text-center">{{pin.title}}</div>
+
+            <div ng-show="clickedPin === pin.id">
+              <hr>
+
+              <div class="pull-left col-md-4">
+                <ul class="list-unstyled">
+                  <li><h3 class="pull-left">{{pin.score}}</h3></li>
+                  <li><img src="{{pin.thumbnail}}" class="pull-left img-thumbnail img-responsive thumb" ng-if="validThumb(pin.thumbnail)"></li>
+                </ul>
+              </div>
+
+              <div class="pull-left col-md-8">
+                <ul class="list-unstyled break">
+                  <li><a href="{{pin.url}}" target="_blank">Link to Item</a></li>
+                  <li><a href="http://reddit.com{{pin.permalink}}" target="_blank">Link to Discussion</a></li>
+                  <li><strong>Top Comment: </strong>{{pin.comment.body}}<h6>({{pin.comment.author}})</h6></li>
+                </ul>
+              </div>
+              
+            </div>
+
+          </td>
+        </tr>
+      </table>
+    </section>
+
+  </section>
+

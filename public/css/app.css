@@ -1,0 +1,16 @@
+body {
+  margin-top: 60px;
+  padding: 10px;
+}
+
+.thumb {
+  height: 75px;
+}
+
+.break {
+  word-break: break-word;
+}
+
+.pinned {
+  color: darkgoldenrod;
+}

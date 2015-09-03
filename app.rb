@@ -7,7 +7,6 @@ class Fundera < Sinatra::Application
   enable :sessions
 
   configure :development do
-    set :database, "sqlite3:////tmp/my.db"
     if (RUBY_PLATFORM == "java")
       require 'jdbc/sqlite3'
       Jdbc::SQLite3.load_driver

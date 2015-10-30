@@ -1,5 +1,5 @@
 {
-  "name": "fundera",
+  "name": "pollreddit",
   "version": "0.0.0",
   "dependencies": {
     "angular": "~1.2.13",

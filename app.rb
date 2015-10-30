@@ -3,7 +3,7 @@ require 'multi_json'
 require 'sinatra'
 require 'sinatra/activerecord'
 
-class Fundera < Sinatra::Application
+class Pollreddit < Sinatra::Application
   enable :sessions
 
   configure :development do

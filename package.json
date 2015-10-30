@@ -1,7 +1,7 @@
 {
-  "name": "fundera",
+  "name": "pollreddit",
   "version": "0.0.0",
-  "description": "Description for fundera",
+  "description": "Description for pollreddit",
   "dependencies": {},
   "devDependencies": {
     "grunt": "~0.4.2",

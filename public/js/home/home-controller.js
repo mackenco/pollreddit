@@ -1,4 +1,4 @@
-angular.module('fundera')
+angular.module('pollreddit')
   .controller('HomeController', ['$scope', '$routeParams', '$location', '$resource', '$interval', 'localStorageService',
     function ($scope, $routeParams, $location, $resource, $interval, localStorageService) {
       $scope.clicked = null;

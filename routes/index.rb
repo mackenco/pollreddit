@@ -2,7 +2,7 @@
 require 'rest_client'
 require 'open-uri'
 
-class Fundera < Sinatra::Application
+class Pollreddit < Sinatra::Application
   get '/' do 
     send_file File.join('public', 'index.html')
   end

@@ -38,7 +38,7 @@ module.exports = function (grunt) {
     connect: {
       proxies: [
         {
-          context: '/fundera',
+          context: '/pollreddit',
           host: 'localhost',
           port: 9292,
           https: false,
